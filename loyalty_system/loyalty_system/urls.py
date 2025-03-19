@@ -21,8 +21,12 @@ from django.shortcuts import redirect
 
 # Add a redirect from the root path to /api/
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('product.urls')),  # Your product API routes
-    path('', lambda request: redirect('/api/')),  # Redirect root to /api/
-    path('accounts/', include('django.contrib.auth.urls')),  # Your accounts API routes
+    path('api/users/', include('users.urls')),
+    path('api/products/', include('product.urls')),
+    path('api/loyalty-programs/', include('loyalty.urls')),
+    path('api/transactions/', include('transaction.urls')),
+    path('api/transaction-details', include('transactiondetail.urls')),
+    path('api/inventories/', include('inventory.urls')),
+    path('api/recommendations/', include('recommendation.urls')),
 ]
+
